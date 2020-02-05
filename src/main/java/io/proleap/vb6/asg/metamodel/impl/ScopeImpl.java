@@ -654,7 +654,8 @@ public abstract class ScopeImpl extends ScopedElementImpl implements Scope {
 
 			final ApiProcedure apiProcedure = castApiProcedure(referencedProgramElements);
 			final ApiProperty apiProperty = castApiProperty(referencedProgramElements);
-			final Arg arg = castArg(referencedProgramElements);
+			Arg arg = castArg(referencedProgramElements);
+			
 			final Function function = castFunction(referencedProgramElements);
 			final Variable variable = castVariable(referencedProgramElements);
 			final PropertyGet propertyGet = castPropertyGet(referencedProgramElements);
@@ -672,7 +673,9 @@ public abstract class ScopeImpl extends ScopedElementImpl implements Scope {
 			/*
 			 * create call model element
 			 */
+			//" ACA ENCONTRAR EL BUG! GUARDA QUE ESTA HACIENDO ESTO CUANDO ES UNA COLLECCION Y LE PACHUNVOHUE SI ES ARGUMENTO O VARIABLE "
 			if (isCollection) {
+			
 				final ArrayElementCall arrayElementCall = new ArrayElementCallImpl(name, variable, module, this, ctx);
 
 				linkArrayElementCallWithVariable(arrayElementCall, variable);
