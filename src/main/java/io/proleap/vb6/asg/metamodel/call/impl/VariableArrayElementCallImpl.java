@@ -13,13 +13,13 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.Variable;
-import io.proleap.vb6.asg.metamodel.call.ArrayElementCall;
+import io.proleap.vb6.asg.metamodel.call.VariableArrayElementCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.type.VbBaseType;
 
-public class ArrayElementCallImpl extends VariableCallImpl implements ArrayElementCall {
+public class VariableArrayElementCallImpl extends VariableCallImpl implements VariableArrayElementCall {
 
-	public ArrayElementCallImpl(final String name, final Variable variable, final Module module, final Scope scope,
+	public VariableArrayElementCallImpl(final String name, final Variable variable, final Module module, final Scope scope,
 			final ParserRuleContext ctx) {
 		super(name, variable, module, scope, ctx);
 	}

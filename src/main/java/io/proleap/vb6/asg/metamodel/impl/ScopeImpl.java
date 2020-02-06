@@ -164,9 +164,10 @@ import io.proleap.vb6.asg.metamodel.call.ApiEnumerationCall;
 import io.proleap.vb6.asg.metamodel.call.ApiEnumerationConstantCall;
 import io.proleap.vb6.asg.metamodel.call.ApiProcedureCall;
 import io.proleap.vb6.asg.metamodel.call.ApiPropertyCall;
+import io.proleap.vb6.asg.metamodel.call.ArgArrayElementCall;
 import io.proleap.vb6.asg.metamodel.call.ArgCall;
 import io.proleap.vb6.asg.metamodel.call.ArgValueAssignmentsContainer;
-import io.proleap.vb6.asg.metamodel.call.ArrayElementCall;
+import io.proleap.vb6.asg.metamodel.call.VariableArrayElementCall;
 import io.proleap.vb6.asg.metamodel.call.Call;
 import io.proleap.vb6.asg.metamodel.call.Call.CallContext;
 import io.proleap.vb6.asg.metamodel.call.ConstantCall;
@@ -186,8 +187,9 @@ import io.proleap.vb6.asg.metamodel.call.impl.ApiEnumerationCallImpl;
 import io.proleap.vb6.asg.metamodel.call.impl.ApiEnumerationConstantCallImpl;
 import io.proleap.vb6.asg.metamodel.call.impl.ApiProcedureCallImpl;
 import io.proleap.vb6.asg.metamodel.call.impl.ApiPropertyCallImpl;
+import io.proleap.vb6.asg.metamodel.call.impl.ArgArrayElementCallImpl;
 import io.proleap.vb6.asg.metamodel.call.impl.ArgCallImpl;
-import io.proleap.vb6.asg.metamodel.call.impl.ArrayElementCallImpl;
+import io.proleap.vb6.asg.metamodel.call.impl.VariableArrayElementCallImpl;
 import io.proleap.vb6.asg.metamodel.call.impl.CallDelegateImpl;
 import io.proleap.vb6.asg.metamodel.call.impl.ConstantCallImpl;
 import io.proleap.vb6.asg.metamodel.call.impl.DictionaryCallImpl;
@@ -655,7 +657,7 @@ public abstract class ScopeImpl extends ScopedElementImpl implements Scope {
 			final ApiProcedure apiProcedure = castApiProcedure(referencedProgramElements);
 			final ApiProperty apiProperty = castApiProperty(referencedProgramElements);
 			Arg arg = castArg(referencedProgramElements);
-			
+
 			final Function function = castFunction(referencedProgramElements);
 			final Variable variable = castVariable(referencedProgramElements);
 			final PropertyGet propertyGet = castPropertyGet(referencedProgramElements);
@@ -673,14 +675,22 @@ public abstract class ScopeImpl extends ScopedElementImpl implements Scope {
 			/*
 			 * create call model element
 			 */
-			//" ACA ENCONTRAR EL BUG! GUARDA QUE ESTA HACIENDO ESTO CUANDO ES UNA COLLECCION Y LE PACHUNVOHUE SI ES ARGUMENTO O VARIABLE "
+			// " ACA ENCONTRAR EL BUG! GUARDA QUE ESTA HACIENDO ESTO CUANDO ES UNA
+			// COLLECCION Y LE PACHUNVOHUE SI ES ARGUMENTO O VARIABLE "
 			if (isCollection) {
-			
-				final ArrayElementCall arrayElementCall = new ArrayElementCallImpl(name, variable, module, this, ctx);
+				if (variable == null && arg != null) {
+					final ArgArrayElementCall arrayElementCall = new ArgArrayElementCallImpl(name, arg, module, this, ctx);
+					linkArrayElementCallWithArgument(arrayElementCall, arg);
+					result = arrayElementCall;
+				}
+				if (arg == null && variable != null) {
+					final VariableArrayElementCall arrayElementCall = new VariableArrayElementCallImpl(name, variable, module, this, ctx);
+					linkArrayElementCallWithVariable(arrayElementCall, variable);
+					result = arrayElementCall;
+				}
+				if(arg == null && variable == null) { throw new RuntimeException("arg == null && variable == null"); }
+				if(arg != null && variable != null) { throw new RuntimeException("arg != null && variable != null"); }
 
-				linkArrayElementCallWithVariable(arrayElementCall, variable);
-
-				result = arrayElementCall;
 			} else {
 				if (function != null) {
 					final FunctionCall functionCall = new FunctionCallImpl(name, function, module, this, ctx);
@@ -2699,8 +2709,15 @@ public abstract class ScopeImpl extends ScopedElementImpl implements Scope {
 		arg.addArgCall(argCall);
 	}
 
-	protected void linkArrayElementCallWithVariable(final ArrayElementCall arrayElementCall, final Variable variable) {
+	protected void linkArrayElementCallWithVariable(final VariableArrayElementCall arrayElementCall,
+			final Variable variable) {
+
 		variable.addVariableCall(arrayElementCall);
+	}
+
+	protected void linkArrayElementCallWithArgument(final ArgArrayElementCall arrayElementCall, final Arg arg) {
+
+		arg.addArgCall(arrayElementCall);
 	}
 
 	protected void linkConstantCallWithConstant(final ConstantCall constantCall, final Constant constant) {
