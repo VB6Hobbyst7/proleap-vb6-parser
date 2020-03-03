@@ -16,6 +16,7 @@ import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.statement.ifstmt.IfCondition;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.ValueStmt;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class IfConditionImpl extends ScopedElementImpl implements IfCondition {
 
@@ -46,6 +47,13 @@ public class IfConditionImpl extends ScopedElementImpl implements IfCondition {
 	@Override
 	public void setValueStmt(final ValueStmt valueStmt) {
 		this.valueStmt = valueStmt;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

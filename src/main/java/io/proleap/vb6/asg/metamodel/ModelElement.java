@@ -8,6 +8,6 @@
 
 package io.proleap.vb6.asg.metamodel;
 
-public interface ModelElement {
+public interface ModelElement extends VisitableElement {
 
 }

@@ -20,6 +20,7 @@ import io.proleap.vb6.asg.metamodel.statement.property.set.PropertySet;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.ValueAssignment;
 import io.proleap.vb6.asg.metamodel.valuestmt.ValueStmt;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ValueAssignmentImpl extends ValueStmtImpl implements ValueAssignment {
 
@@ -123,6 +124,13 @@ public class ValueAssignmentImpl extends ValueStmtImpl implements ValueAssignmen
 	@Override
 	public void setVariable(final Variable variable) {
 		this.variable = variable;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

@@ -14,6 +14,7 @@ import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.call.Call;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.CallValueStmt;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class CallValueStmtImpl extends ValueStmtImpl implements CallValueStmt {
 
@@ -42,6 +43,13 @@ public class CallValueStmtImpl extends ValueStmtImpl implements CallValueStmt {
 		}
 
 		return result;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

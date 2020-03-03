@@ -8,6 +8,6 @@
 
 package io.proleap.vb6.asg.metamodel;
 
-public enum VisibilityEnum {
+public enum VisibilityEnum  {
 	FRIEND, GLOBAL, PRIVATE, PUBLIC
 }

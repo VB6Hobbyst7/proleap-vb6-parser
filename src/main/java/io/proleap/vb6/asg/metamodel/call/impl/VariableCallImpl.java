@@ -15,6 +15,7 @@ import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.Variable;
 import io.proleap.vb6.asg.metamodel.call.VariableCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class VariableCallImpl extends CallImpl implements VariableCall {
 
@@ -53,5 +54,12 @@ public class VariableCallImpl extends CallImpl implements VariableCall {
 	@Override
 	public String toString() {
 		return super.toString() + ", variable=[" + variable + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

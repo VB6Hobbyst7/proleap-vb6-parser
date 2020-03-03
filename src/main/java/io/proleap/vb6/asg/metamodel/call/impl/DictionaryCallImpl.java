@@ -13,6 +13,7 @@ import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.call.DictionaryCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class DictionaryCallImpl extends CallImpl implements DictionaryCall {
 
@@ -29,5 +30,12 @@ public class DictionaryCallImpl extends CallImpl implements DictionaryCall {
 	@Override
 	public Type getType() {
 		return null;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

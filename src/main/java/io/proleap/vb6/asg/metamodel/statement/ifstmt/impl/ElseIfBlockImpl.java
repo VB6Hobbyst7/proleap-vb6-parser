@@ -13,11 +13,19 @@ import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.statement.ifstmt.ElseIfBlock;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ElseIfBlockImpl extends ScopedElementImpl implements ElseIfBlock {
 
 	public ElseIfBlockImpl(final Module module, final Scope scope, final IfElseIfBlockStmtContext ctx) {
 		super(module.getProgram(), module, scope, ctx);
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

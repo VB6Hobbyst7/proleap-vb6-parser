@@ -18,6 +18,7 @@ import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.let.Let;
 import io.proleap.vb6.asg.metamodel.valuestmt.ValueStmt;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class LetImpl extends ScopedElementImpl implements Let {
 
@@ -73,6 +74,13 @@ public class LetImpl extends ScopedElementImpl implements Let {
 	@Override
 	public String toString() {
 		return "leftHandCall=[" + leftHandCall + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

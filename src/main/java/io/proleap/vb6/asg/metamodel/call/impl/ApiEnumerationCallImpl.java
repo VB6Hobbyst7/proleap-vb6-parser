@@ -15,6 +15,7 @@ import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.api.ApiEnumeration;
 import io.proleap.vb6.asg.metamodel.call.ApiEnumerationCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ApiEnumerationCallImpl extends CallImpl implements ApiEnumerationCall {
 
@@ -53,5 +54,12 @@ public class ApiEnumerationCallImpl extends CallImpl implements ApiEnumerationCa
 	@Override
 	public String toString() {
 		return super.toString() + ", apiEnumeration=[" + apiEnumeration + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

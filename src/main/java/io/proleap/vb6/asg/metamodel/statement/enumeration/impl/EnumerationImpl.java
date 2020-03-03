@@ -31,6 +31,7 @@ import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.ValueStmt;
 import io.proleap.vb6.asg.resolver.impl.NameResolverImpl;
 import io.proleap.vb6.asg.resolver.impl.TypeResolverImpl;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class EnumerationImpl extends ScopedElementImpl implements Enumeration {
 
@@ -157,6 +158,13 @@ public class EnumerationImpl extends ScopedElementImpl implements Enumeration {
 	@Override
 	public String toString() {
 		return "name=[" + name + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

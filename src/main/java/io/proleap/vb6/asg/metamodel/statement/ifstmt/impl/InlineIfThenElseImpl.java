@@ -15,6 +15,7 @@ import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.ifstmt.InlineIfThenElse;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class InlineIfThenElseImpl extends ScopedElementImpl implements InlineIfThenElse {
 
@@ -25,6 +26,13 @@ public class InlineIfThenElseImpl extends ScopedElementImpl implements InlineIfT
 	@Override
 	public StatementType getStatementType() {
 		return StatementTypeEnum.INLINE_IF_THEN_ELSE;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

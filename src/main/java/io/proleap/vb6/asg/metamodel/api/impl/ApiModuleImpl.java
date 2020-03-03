@@ -14,6 +14,7 @@ import java.util.Map;
 import io.proleap.vb6.asg.metamodel.api.ApiModule;
 import io.proleap.vb6.asg.metamodel.api.ApiProcedure;
 import io.proleap.vb6.asg.metamodel.api.ApiProperty;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ApiModuleImpl implements ApiModule {
 
@@ -71,5 +72,12 @@ public class ApiModuleImpl implements ApiModule {
 	@Override
 	public String toString() {
 		return "name=[" + name + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

@@ -15,6 +15,7 @@ import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.api.ApiProperty;
 import io.proleap.vb6.asg.metamodel.call.ApiPropertyCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ApiPropertyCallImpl extends CallImpl implements ApiPropertyCall {
 
@@ -53,6 +54,13 @@ public class ApiPropertyCallImpl extends CallImpl implements ApiPropertyCall {
 	@Override
 	public String toString() {
 		return super.toString() + ", apiProperty=[" + apiProperty + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

@@ -13,6 +13,7 @@ import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.ValueStmt;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class StructValueStmtImpl extends ValueStmtImpl implements ValueStmt {
 
@@ -23,6 +24,13 @@ public class StructValueStmtImpl extends ValueStmtImpl implements ValueStmt {
 	@Override
 	public Type getType() {
 		return null;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

@@ -13,6 +13,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import io.proleap.vb6.VisualBasic6Parser.ModuleContext;
 import io.proleap.vb6.asg.metamodel.ClazzModule;
 import io.proleap.vb6.asg.metamodel.Program;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ClazzModuleImpl extends ModuleImpl implements ClazzModule {
 
@@ -22,6 +23,13 @@ public class ClazzModuleImpl extends ModuleImpl implements ClazzModule {
 
 		program.registerClazzModule(this);
 		program.getTypeRegistry().registerType(this);
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

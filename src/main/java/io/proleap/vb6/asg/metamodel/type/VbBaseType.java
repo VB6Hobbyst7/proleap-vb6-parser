@@ -8,6 +8,8 @@
 
 package io.proleap.vb6.asg.metamodel.type;
 
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
+
 public enum VbBaseType implements BaseType {
 
 	BOOLEAN("Boolean", false), BYTE("Byte", false), COLLECTION("Collection", true), COLOR("Color", false), CURRENCY(
@@ -42,5 +44,12 @@ public enum VbBaseType implements BaseType {
 	@Override
 	public boolean isCollection() {
 		return isCollection;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

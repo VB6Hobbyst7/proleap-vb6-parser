@@ -15,6 +15,7 @@ import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.api.ApiProcedure;
 import io.proleap.vb6.asg.metamodel.call.ApiProcedureCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ApiProcedureCallImpl extends CallImpl implements ApiProcedureCall {
 
@@ -53,6 +54,13 @@ public class ApiProcedureCallImpl extends CallImpl implements ApiProcedureCall {
 	@Override
 	public String toString() {
 		return super.toString() + ", apiProcedure=[" + apiProcedure + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

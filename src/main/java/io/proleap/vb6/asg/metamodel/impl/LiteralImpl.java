@@ -13,6 +13,7 @@ import io.proleap.vb6.asg.metamodel.Literal;
 import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class LiteralImpl extends ScopedElementImpl implements Literal {
 
@@ -49,5 +50,12 @@ public class LiteralImpl extends ScopedElementImpl implements Literal {
 	@Override
 	public String toString() {
 		return super.toString() + ", value=[" + value + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

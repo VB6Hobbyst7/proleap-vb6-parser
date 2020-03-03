@@ -15,6 +15,7 @@ import io.proleap.vb6.asg.metamodel.api.ApiEnumeration;
 import io.proleap.vb6.asg.metamodel.api.ApiEnumerationConstant;
 import io.proleap.vb6.asg.metamodel.call.ApiEnumerationConstantCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ApiEnumerationConstantImpl implements ApiEnumerationConstant {
 
@@ -57,5 +58,12 @@ public class ApiEnumerationConstantImpl implements ApiEnumerationConstant {
 	@Override
 	public String toString() {
 		return "name=[" + name + "], apiEnumeration=[" + apiEnumeration + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

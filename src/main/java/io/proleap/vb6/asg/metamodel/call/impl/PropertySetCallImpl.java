@@ -19,6 +19,7 @@ import io.proleap.vb6.asg.metamodel.call.PropertySetCall;
 import io.proleap.vb6.asg.metamodel.statement.property.set.PropertySet;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.ArgValueAssignment;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class PropertySetCallImpl extends CallImpl implements PropertySetCall {
 
@@ -61,5 +62,12 @@ public class PropertySetCallImpl extends CallImpl implements PropertySetCall {
 	@Override
 	public String toString() {
 		return super.toString() + ", propertySet=[" + propertySet + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

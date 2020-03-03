@@ -16,6 +16,7 @@ import io.proleap.vb6.asg.metamodel.statement.select.Select;
 import io.proleap.vb6.asg.metamodel.statement.select.SelectCase;
 import io.proleap.vb6.asg.metamodel.statement.select.SelectCaseCond;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class SelectCaseImpl extends ScopedElementImpl implements SelectCase {
 
@@ -66,5 +67,12 @@ public class SelectCaseImpl extends ScopedElementImpl implements SelectCase {
 	@Override
 	public void setSelectCaseCond(final SelectCaseCond selectCaseCond) {
 		this.selectCaseCond = selectCaseCond;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

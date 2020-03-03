@@ -14,6 +14,7 @@ import java.util.List;
 import io.proleap.vb6.asg.metamodel.api.ApiProcedure;
 import io.proleap.vb6.asg.metamodel.call.ApiProcedureCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ApiProcedureImpl implements ApiProcedure {
 
@@ -51,5 +52,12 @@ public class ApiProcedureImpl implements ApiProcedure {
 	@Override
 	public String toString() {
 		return "name=[" + name + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

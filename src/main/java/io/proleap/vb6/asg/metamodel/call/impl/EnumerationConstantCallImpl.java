@@ -15,6 +15,7 @@ import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.call.EnumerationConstantCall;
 import io.proleap.vb6.asg.metamodel.statement.enumeration.EnumerationConstant;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class EnumerationConstantCallImpl extends CallImpl implements EnumerationConstantCall {
 
@@ -65,5 +66,12 @@ public class EnumerationConstantCallImpl extends CallImpl implements Enumeration
 	@Override
 	public String toString() {
 		return super.toString() + ", enumerationConstant=[" + enumerationConstant + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

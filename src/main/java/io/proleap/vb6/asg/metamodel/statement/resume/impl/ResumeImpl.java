@@ -17,6 +17,7 @@ import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.resume.Resume;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ResumeImpl extends ScopedElementImpl implements Resume {
 
@@ -43,5 +44,12 @@ public class ResumeImpl extends ScopedElementImpl implements Resume {
 	@Override
 	public String toString() {
 		return "lineLabel=[" + lineLabel + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

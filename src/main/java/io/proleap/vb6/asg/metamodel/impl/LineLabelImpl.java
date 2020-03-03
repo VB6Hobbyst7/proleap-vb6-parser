@@ -18,6 +18,7 @@ import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.statement.onerror.OnError;
 import io.proleap.vb6.asg.metamodel.statement.resume.Resume;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class LineLabelImpl extends ScopedElementImpl implements LineLabel {
 
@@ -65,6 +66,13 @@ public class LineLabelImpl extends ScopedElementImpl implements LineLabel {
 	@Override
 	public String toString() {
 		return "name=[" + name + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

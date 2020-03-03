@@ -8,7 +8,7 @@
 
 package io.proleap.vb6.asg.metamodel;
 
-public interface VisibilityElement {
+public interface VisibilityElement extends VisitableElement {
 
 	VisibilityEnum getVisibility();
 }

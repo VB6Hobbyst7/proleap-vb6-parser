@@ -21,6 +21,7 @@ import io.proleap.vb6.asg.metamodel.statement.ifstmt.BlockIfThenElse;
 import io.proleap.vb6.asg.metamodel.statement.ifstmt.ElseBlock;
 import io.proleap.vb6.asg.metamodel.statement.ifstmt.ElseIfBlock;
 import io.proleap.vb6.asg.metamodel.statement.ifstmt.IfBlock;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class BlockIfThenElseImpl extends ScopedElementImpl implements BlockIfThenElse {
 
@@ -67,6 +68,13 @@ public class BlockIfThenElseImpl extends ScopedElementImpl implements BlockIfThe
 	@Override
 	public void setIfBlock(final IfBlock ifBlock) {
 		this.ifBlock = ifBlock;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

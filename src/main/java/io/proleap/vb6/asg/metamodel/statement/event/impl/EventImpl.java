@@ -26,6 +26,7 @@ import io.proleap.vb6.asg.metamodel.statement.event.Event;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.resolver.impl.NameResolverImpl;
 import io.proleap.vb6.asg.resolver.impl.TypeResolverImpl;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class EventImpl extends ScopedElementImpl implements Event {
 
@@ -81,5 +82,12 @@ public class EventImpl extends ScopedElementImpl implements Event {
 	@Override
 	public VisibilityEnum getVisibility() {
 		return visibility;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

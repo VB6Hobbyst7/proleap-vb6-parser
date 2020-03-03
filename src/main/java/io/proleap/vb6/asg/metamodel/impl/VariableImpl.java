@@ -21,6 +21,7 @@ import io.proleap.vb6.asg.metamodel.Variable;
 import io.proleap.vb6.asg.metamodel.VisibilityEnum;
 import io.proleap.vb6.asg.metamodel.call.VariableCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class VariableImpl extends ScopedElementImpl implements Variable {
 
@@ -157,5 +158,12 @@ public class VariableImpl extends ScopedElementImpl implements Variable {
 	@Override
 	public String toString() {
 		return "name=[" + name + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

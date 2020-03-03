@@ -24,6 +24,7 @@ import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.function.Function;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class FunctionImpl extends ProcedureImpl implements Function {
 
@@ -108,5 +109,12 @@ public class FunctionImpl extends ProcedureImpl implements Function {
 	@Override
 	public void setDeclaredAsArray(final boolean isDeclaredAsArray) {
 		this.isDeclaredAsArray = isDeclaredAsArray;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

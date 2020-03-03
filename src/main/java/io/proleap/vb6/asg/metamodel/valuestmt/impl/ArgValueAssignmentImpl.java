@@ -16,6 +16,7 @@ import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.ArgValueAssignment;
 import io.proleap.vb6.asg.metamodel.valuestmt.ValueStmt;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ArgValueAssignmentImpl extends ScopedElementImpl implements ArgValueAssignment {
 
@@ -64,6 +65,13 @@ public class ArgValueAssignmentImpl extends ScopedElementImpl implements ArgValu
 	@Override
 	public String toString() {
 		return super.toString() + ", arg=[" + arg + "], assignedValueStmt=[" + assignedValueStmt + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

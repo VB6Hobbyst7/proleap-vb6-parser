@@ -21,6 +21,7 @@ import io.proleap.vb6.asg.metamodel.call.ElementVariableCall;
 import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.statement.foreach.ElementVariable;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ElementVariableImpl extends ScopedElementImpl implements ElementVariable {
 
@@ -89,5 +90,12 @@ public class ElementVariableImpl extends ScopedElementImpl implements ElementVar
 	@Override
 	public String toString() {
 		return "name=[" + name + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

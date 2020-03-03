@@ -13,11 +13,19 @@ import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.statement.ifstmt.IfBlock;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class IfBlockImpl extends ScopedElementImpl implements IfBlock {
 
 	public IfBlockImpl(final Module module, final Scope scope, final IfBlockStmtContext ctx) {
 		super(module.getProgram(), module, scope, ctx);
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

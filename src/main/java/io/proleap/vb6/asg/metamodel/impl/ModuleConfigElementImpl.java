@@ -12,6 +12,7 @@ import io.proleap.vb6.VisualBasic6Parser.ModuleConfigElementContext;
 import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.ModuleConfigElement;
 import io.proleap.vb6.asg.metamodel.Scope;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ModuleConfigElementImpl extends ScopedElementImpl implements ModuleConfigElement {
 
@@ -35,6 +36,13 @@ public class ModuleConfigElementImpl extends ScopedElementImpl implements Module
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

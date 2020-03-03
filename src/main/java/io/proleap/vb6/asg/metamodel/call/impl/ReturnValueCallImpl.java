@@ -16,6 +16,7 @@ import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.call.ReturnValueCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.type.TypedElement;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ReturnValueCallImpl extends CallImpl implements ReturnValueCall {
 
@@ -54,5 +55,12 @@ public class ReturnValueCallImpl extends CallImpl implements ReturnValueCall {
 	@Override
 	public String toString() {
 		return super.toString() + ", procedure=[" + procedure + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

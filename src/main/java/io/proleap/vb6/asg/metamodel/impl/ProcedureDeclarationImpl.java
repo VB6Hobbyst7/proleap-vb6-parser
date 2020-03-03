@@ -22,6 +22,7 @@ import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.resolver.impl.NameResolverImpl;
 import io.proleap.vb6.asg.resolver.impl.TypeResolverImpl;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ProcedureDeclarationImpl extends ScopedElementImpl implements ProcedureDeclaration {
 
@@ -62,5 +63,12 @@ public class ProcedureDeclarationImpl extends ScopedElementImpl implements Proce
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

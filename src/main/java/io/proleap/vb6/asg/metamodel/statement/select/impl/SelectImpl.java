@@ -21,6 +21,7 @@ import io.proleap.vb6.asg.metamodel.statement.select.Select;
 import io.proleap.vb6.asg.metamodel.statement.select.SelectCase;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.ValueStmt;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class SelectImpl extends ScopeImpl implements Select {
 
@@ -92,6 +93,13 @@ public class SelectImpl extends ScopeImpl implements Select {
 	@Override
 	public void setValueStmt(final ValueStmt valueStmt) {
 		this.valueStmt = valueStmt;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

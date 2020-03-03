@@ -17,6 +17,7 @@ import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Type;
 import io.proleap.vb6.asg.metamodel.TypeElement;
 import io.proleap.vb6.asg.metamodel.VisibilityEnum;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class TypeImpl extends ScopedElementImpl implements Type {
 
@@ -58,6 +59,13 @@ public class TypeImpl extends ScopedElementImpl implements Type {
 	@Override
 	public boolean isCollection() {
 		return false;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

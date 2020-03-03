@@ -19,6 +19,7 @@ import io.proleap.vb6.asg.metamodel.call.Call;
 import io.proleap.vb6.asg.metamodel.call.MembersCall;
 import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class MembersCallImpl extends ScopedElementImpl implements MembersCall {
 
@@ -96,5 +97,12 @@ public class MembersCallImpl extends ScopedElementImpl implements MembersCall {
 	@Override
 	public Call unwrap() {
 		return getLastSubCall().unwrap();
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

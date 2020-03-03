@@ -15,6 +15,7 @@ import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.deletesetting.DeleteSetting;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class DeleteSettingImpl extends ScopedElementImpl implements DeleteSetting {
 
@@ -36,6 +37,13 @@ public class DeleteSettingImpl extends ScopedElementImpl implements DeleteSettin
 	@Override
 	public StatementType getStatementType() {
 		return statementType;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

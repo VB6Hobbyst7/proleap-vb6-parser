@@ -13,6 +13,7 @@ import java.util.List;
 
 import io.proleap.vb6.asg.metamodel.DefType;
 import io.proleap.vb6.asg.metamodel.type.BaseType;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class DefTypeImpl implements DefType {
 
@@ -69,5 +70,12 @@ public class DefTypeImpl implements DefType {
 	@Override
 	public String toString() {
 		return baseType + ": " + letterRanges;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

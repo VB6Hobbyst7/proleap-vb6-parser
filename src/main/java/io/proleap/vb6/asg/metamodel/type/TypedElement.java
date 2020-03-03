@@ -8,7 +8,9 @@
 
 package io.proleap.vb6.asg.metamodel.type;
 
-public interface TypedElement {
+import io.proleap.vb6.asg.metamodel.VisitableElement;
+
+public interface TypedElement extends VisitableElement  {
 
 	Type getType();
 

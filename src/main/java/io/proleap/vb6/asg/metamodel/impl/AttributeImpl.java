@@ -14,6 +14,7 @@ import io.proleap.vb6.asg.metamodel.Literal;
 import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class AttributeImpl extends ScopedElementImpl implements Attribute {
 
@@ -62,5 +63,12 @@ public class AttributeImpl extends ScopedElementImpl implements Attribute {
 	@Override
 	public String toString() {
 		return "name=[" + name + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

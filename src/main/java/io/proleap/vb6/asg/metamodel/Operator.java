@@ -8,7 +8,7 @@
 
 package io.proleap.vb6.asg.metamodel;
 
-public interface Operator {
+public interface Operator extends VisitableElement {
 
 	public enum VbOperator {
 		AMP, AND, DIV, EQ, EQV, GEQ, GT, IMP, IS, LEQ, LIKE, LT, MINUS, MOD, MULT, NEQ, NOT, OR, PLUS, POW, XOR;

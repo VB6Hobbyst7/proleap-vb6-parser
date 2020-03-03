@@ -20,6 +20,7 @@ import io.proleap.vb6.asg.metamodel.impl.ProcedureImpl;
 import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.property.set.PropertySet;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class PropertySetImpl extends ProcedureImpl implements PropertySet {
 
@@ -64,5 +65,12 @@ public class PropertySetImpl extends ProcedureImpl implements PropertySet {
 	@Override
 	public boolean hasReturnType() {
 		return false;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

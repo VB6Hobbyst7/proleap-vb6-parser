@@ -16,6 +16,7 @@ import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.whilestmt.While;
 import io.proleap.vb6.asg.metamodel.valuestmt.ValueStmt;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class WhileImpl extends ScopeImpl implements While {
 
@@ -49,6 +50,13 @@ public class WhileImpl extends ScopeImpl implements While {
 	@Override
 	public void setCondition(final ValueStmt condition) {
 		this.condition = condition;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

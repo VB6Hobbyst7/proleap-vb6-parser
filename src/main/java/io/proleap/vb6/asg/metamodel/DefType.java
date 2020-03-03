@@ -17,7 +17,7 @@ import io.proleap.vb6.asg.metamodel.type.BaseType;
  * procedures, and the return types for Function and Property Get procedures
  * whose names start with the specified characters.
  */
-public interface DefType {
+public interface DefType extends VisitableElement {
 
 	public interface LetterRange {
 		String getLower();

@@ -35,6 +35,7 @@ import io.proleap.vb6.asg.metamodel.registry.impl.EnumerationRegistryImpl;
 import io.proleap.vb6.asg.metamodel.registry.impl.TypeRegistryImpl;
 import io.proleap.vb6.asg.resolver.NameResolver;
 import io.proleap.vb6.asg.resolver.impl.NameResolverImpl;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ProgramImpl extends ScopeImpl implements Program {
 
@@ -228,5 +229,12 @@ public class ProgramImpl extends ScopeImpl implements Program {
 	public void registerStandardModule(final StandardModule standardModule) {
 		final String moduleKey = getModuleKey(standardModule.getName());
 		standardModules.put(moduleKey, standardModule);
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

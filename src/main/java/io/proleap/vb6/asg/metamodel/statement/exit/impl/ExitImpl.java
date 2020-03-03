@@ -15,6 +15,7 @@ import io.proleap.vb6.asg.metamodel.impl.ScopedElementImpl;
 import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.exit.Exit;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ExitImpl extends ScopedElementImpl implements Exit {
 
@@ -44,6 +45,13 @@ public class ExitImpl extends ScopedElementImpl implements Exit {
 	@Override
 	public StatementType getStatementType() {
 		return statementType;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

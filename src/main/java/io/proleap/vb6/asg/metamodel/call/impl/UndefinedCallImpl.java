@@ -14,6 +14,7 @@ import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.call.Call;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class UndefinedCallImpl extends CallImpl implements Call {
 
@@ -34,6 +35,13 @@ public class UndefinedCallImpl extends CallImpl implements Call {
 	@Override
 	public Type getType() {
 		return type;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

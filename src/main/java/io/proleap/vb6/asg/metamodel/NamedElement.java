@@ -8,7 +8,7 @@
 
 package io.proleap.vb6.asg.metamodel;
 
-public interface NamedElement {
+public interface NamedElement extends VisitableElement  {
 
 	String getName();
 }

@@ -16,6 +16,7 @@ import io.proleap.vb6.asg.metamodel.impl.ScopeImpl;
 import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.with.With;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class WithImpl extends ScopeImpl implements With {
 
@@ -49,6 +50,13 @@ public class WithImpl extends ScopeImpl implements With {
 	@Override
 	public void setWithVariableCall(final Call withVariableCall) {
 		this.withVariableCall = withVariableCall;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

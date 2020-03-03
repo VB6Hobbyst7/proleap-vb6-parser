@@ -19,6 +19,7 @@ import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.TypeElement;
 import io.proleap.vb6.asg.metamodel.call.TypeElementCall;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class TypeElementImpl extends ScopedElementImpl implements TypeElement {
 
@@ -110,5 +111,12 @@ public class TypeElementImpl extends ScopedElementImpl implements TypeElement {
 	@Override
 	public String toString() {
 		return "name=[" + name + "], type=[" + type + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

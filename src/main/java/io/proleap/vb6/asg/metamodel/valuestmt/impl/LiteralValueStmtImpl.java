@@ -14,6 +14,7 @@ import io.proleap.vb6.asg.metamodel.Module;
 import io.proleap.vb6.asg.metamodel.Scope;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.LiteralValueStmt;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class LiteralValueStmtImpl extends ValueStmtImpl implements LiteralValueStmt {
 
@@ -41,5 +42,12 @@ public class LiteralValueStmtImpl extends ValueStmtImpl implements LiteralValueS
 	@Override
 	public String toString() {
 		return literal.toString();
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

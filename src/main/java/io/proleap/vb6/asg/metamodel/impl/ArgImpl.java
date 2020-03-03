@@ -24,6 +24,7 @@ import io.proleap.vb6.asg.metamodel.call.ArgCall;
 import io.proleap.vb6.asg.metamodel.call.Call;
 import io.proleap.vb6.asg.metamodel.statement.event.Event;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ArgImpl extends ScopedElementImpl implements Arg {
 
@@ -168,5 +169,12 @@ public class ArgImpl extends ScopedElementImpl implements Arg {
 	@Override
 	public String toString() {
 		return "name=[" + name + "], type=[" + type + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

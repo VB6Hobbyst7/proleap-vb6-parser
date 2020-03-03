@@ -19,6 +19,7 @@ import io.proleap.vb6.asg.metamodel.call.SubCall;
 import io.proleap.vb6.asg.metamodel.statement.sub.Sub;
 import io.proleap.vb6.asg.metamodel.type.Type;
 import io.proleap.vb6.asg.metamodel.valuestmt.ArgValueAssignment;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class SubCallImpl extends CallImpl implements SubCall {
 
@@ -63,5 +64,12 @@ public class SubCallImpl extends CallImpl implements SubCall {
 	@Override
 	public String toString() {
 		return super.toString() + ", sub=[" + sub + "]";
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 }

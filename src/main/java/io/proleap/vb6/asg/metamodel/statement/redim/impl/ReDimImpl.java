@@ -17,6 +17,7 @@ import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.redim.ReDim;
 import io.proleap.vb6.asg.metamodel.type.Type;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class ReDimImpl extends ScopedElementImpl implements ReDim {
 
@@ -67,6 +68,13 @@ public class ReDimImpl extends ScopedElementImpl implements ReDim {
 	@Override
 	public Variable getVariable() {
 		return variable;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }

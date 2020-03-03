@@ -20,6 +20,7 @@ import io.proleap.vb6.asg.metamodel.impl.ProcedureImpl;
 import io.proleap.vb6.asg.metamodel.statement.StatementType;
 import io.proleap.vb6.asg.metamodel.statement.StatementTypeEnum;
 import io.proleap.vb6.asg.metamodel.statement.sub.Sub;
+import io.proleap.vb6.asg.visitor.VBASGVisitor;
 
 public class SubImpl extends ProcedureImpl implements Sub {
 
@@ -63,6 +64,13 @@ public class SubImpl extends ProcedureImpl implements Sub {
 	@Override
 	public boolean hasReturnType() {
 		return false;
+	}
+
+	@Override
+	public void acceptVisitor(VBASGVisitor visitor) {
+		// TODO Auto-generated method stub
+			visitor.visit(this);
+		
 	}
 
 }
